@@ -10,25 +10,21 @@ object Spark01_RDD_Oper_Transform {
     val sc = new SparkContext(conf)
 
     // TODO 算子 - 转换 - map
-    val rdd = sc.makeRDD(
-      List(1,2,3,4)
-    )
+    val rdd = sc.makeRDD(List(1,2,3,4))
 
     // map算子表示将数据源中的每一条数据进行处理
     // map算子的参数是函数类型： Int => U(不确定)
+    def mapFunction( num : Int ): Int = {
+      num * 2
+    }
 
-//    def function(num:Int): Int ={
-//      num*2
-//    }
-//
-//    // A=>B
-//    val rInt: RDD[Int] = rdd.map(function)
-    val rInt: RDD[Int] = rdd.map(_*2)
-    rInt.collect().foreach(println)
+    // A => B
+    //val rdd1: RDD[Int] = rdd.map(mapFunction)
+    val rdd1: RDD[Int] = rdd.map(_ * 2)
 
+    rdd1.collect().foreach(println)
 
     sc.stop()
-
 
 
   }

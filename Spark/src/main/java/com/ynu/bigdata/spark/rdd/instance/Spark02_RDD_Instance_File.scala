@@ -22,7 +22,7 @@ object Spark02_RDD_Instance_File {
     // （想要切片数量）numSplits = 2
     // totalSize = 7  文件的字节数
     // (预计每个分区的字节大小)goalSize = totalSize / numSplits = 7 / 2 = 3
-    // splitSize = Math.max(minSize(1), Math.min(goalSize(5G), blockSize(128M))) = 128;
+    // splitSize = Math.max(minSize(1), Math.min(goalSize(5G), blockSize(128M))) = 128;  切片大小
     // 7 / 3 = 2...1 = 2 + 1 = 3     剩下一个字节占每个分区字节数3的  1/3 = 33.3% > 10% 所以需要加1个分区
     val rdd = sc.textFile("data/word.txt", 2)
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crawler" />
+        <module name="datasource" />
+        <module name="process" />
+        <module name="webui" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="covid19" target="1.5" />
+      <module name="crawler" target="1.5" />
+      <module name="datasource" target="1.5" />
+      <module name="process" target="1.8" />
+      <module name="webui" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="datasource" options="-parameters" />
+      <module name="webui" options="-parameters" />
+    </option>
+  </component>
+</project>

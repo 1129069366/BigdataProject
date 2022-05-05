@@ -14,6 +14,15 @@ object Spark09_RDD_Oper_Transform {
       List(1, 1, 1, 1)
     )
 
+    // map(x => (x, null)).reduceByKey((x, _) => x, numPartitions).map(_._1)
+    // 【1，1，1】
+    // 【(1, null)，(1, null)，(1, null)】
+    // 【null, null, null】
+    // 【null, null】
+    // 【(1, null)】
+    // 【1】
+
+
     val rdd2: RDD[Int] = rdd1.distinct()
     rdd2.collect().foreach(println(_))
 

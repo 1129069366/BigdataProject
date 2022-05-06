@@ -11,7 +11,7 @@ object Spark02_RDD_Oper_Transform {
 
     // TODO 算子 - 转换 -
     val rdd: RDD[Int] = sc.makeRDD(
-      List(1, 2, 3, 4, 5), 2          // 指定numSlice为2  不是具体的分区数.是希望吧数字分成两组
+      List(1, 2, 3, 4, 5), 2          // 指定numSlice为2  从内存中创建的RDD就是设定了具体的分区数.
     )
     val rdd1: RDD[Int] = rdd.mapPartitions(
       list => {

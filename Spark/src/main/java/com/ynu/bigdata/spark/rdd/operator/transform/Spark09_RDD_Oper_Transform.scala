@@ -7,7 +7,6 @@ object Spark09_RDD_Oper_Transform {
   def main(args: Array[String]): Unit = {
 
     val conf = new SparkConf().setMaster("local[*]").setAppName("RDD")
-    conf.set("spark.local.dir", "e:/test")
     val sc = new SparkContext(conf)
 
     val rdd1: RDD[Int] = sc.makeRDD(
@@ -19,11 +18,11 @@ object Spark09_RDD_Oper_Transform {
     // 【(1, null)，(1, null)，(1, null)】
     // 【null, null, null】
     // 【null, null】
-    // 【(1, null)】
-    // 【1】
+    // 【(1, null)】  reduceByKey
+    // 【1】   .map(_._1)
 
 
-    val rdd2: RDD[Int] = rdd1.distinct()
+    val rdd2: RDD[Int] = rdd1.distinct()   // 底层是有shuffle的.因为这些数据(这里是1)有可能是在不同的分区中，所以不同分区需要进行落盘操作。
     rdd2.collect().foreach(println(_))
 
 

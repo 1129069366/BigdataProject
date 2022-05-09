@@ -7,7 +7,6 @@ object Spark07_RDD_Oper_Transform_1 {
   def main(args: Array[String]): Unit = {
 
     val conf = new SparkConf().setMaster("local[*]").setAppName("RDD")
-    conf.set("spark.local.dir", "e:/test")
     val sc = new SparkContext(conf)
 
     val lines: RDD[String] = sc.textFile("data/apache.log")

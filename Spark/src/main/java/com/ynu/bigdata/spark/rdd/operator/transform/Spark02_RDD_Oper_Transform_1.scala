@@ -1,6 +1,5 @@
 package com.ynu.bigdata.spark.rdd.operator.transform
 
-import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 object Spark02_RDD_Oper_Transform_1 {
